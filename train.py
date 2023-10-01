@@ -102,6 +102,8 @@ else:
 # cfg.data_folder = "datamount/train_landmarks_v3_mount/"
 cfg.device = 'cuda' if torch.cuda.is_available() else 'cpu'
 
+train_df = train_df.astype(float)
+val_df = val_df.astype(float)
 # Set up the dataset and dataloader
 train_dataset = CustomDataset(train_df, cfg, aug=cfg.train_aug, mode="train")
 val_dataset = CustomDataset(val_df, cfg, aug=cfg.train_aug, mode="val")
