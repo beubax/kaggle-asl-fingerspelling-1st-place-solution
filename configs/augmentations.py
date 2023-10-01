@@ -633,6 +633,7 @@ def spatial_random_affine(data,scale=None,shear=None,shift=None,degree=None,cent
         shear_x, shear_y = shear
         shear_mat = torch.tensor([[1.,shear_x],
                                   [shear_y,1.]])    
+        data = data.float()
         data = data @ shear_mat
         center = center + torch.tensor([shear_y, shear_x])
         
