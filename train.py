@@ -159,6 +159,7 @@ for epoch in range(cfg.epochs):
         i += 1
         cfg.curr_step += cfg.batch_size
         data = next(tr_it)
+        data = data.type(torch.cuda.FloatTensor)
         torch.set_grad_enabled(True)
         batch = batch_to_device(data, cfg.device)
         if cfg.mixed_precision:
